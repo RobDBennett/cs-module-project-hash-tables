@@ -131,9 +131,15 @@ class HashTable:
         Shifts pointers along the nodes.
         Gives a warning if the key to delete isn't present.
         """
-        index = self.hash_index(key)
-        current_node = self.array[index]
-        prev_entry = None
+        #index = self.hash_index(key)
+        #current_node = self.array[index]
+        #prev_entry = None
+        if self.get(key):
+            index = self.hash_index(key)
+            current_node = self.array[index]
+            prev_entry = None 
+        else:
+            print(f"Warning: Tried to delete a value from HashTable but no value exists for key: '{key}'")
 
         while current_node != None:
             if current_node.get_key() == key:
@@ -145,15 +151,13 @@ class HashTable:
             
             prev_entry = current_node
             current_node = current_node.get_next()
-
+        
         if self.get_load_factor() < 0.2:
             new_capacity = self.capacity // 2
             if new_capacity < MIN_CAPACITY:
                 self.resize(MIN_CAPACITY)
             else:
                 self.resize(new_capacity)
-
-        print(f"Warning: Tried to delete a value from HashTable but no value exists for key: '{key}'")
 
 
     def get(self, key):
