@@ -1,7 +1,18 @@
 def no_dups(s):
-    # Your code here
-
-
+    clean = []
+    if s == "":
+        return ""
+    else:
+        for word in s.split():
+            if word in clean:
+                continue 
+            else:
+                clean.append(word)
+    answer = ""
+    for word in clean:
+        answer += word
+        answer += " "
+    return answer.strip()
 
 if __name__ == "__main__":
     print(no_dups(""))

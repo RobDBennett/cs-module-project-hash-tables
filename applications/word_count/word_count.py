@@ -1,7 +1,17 @@
 def word_count(s):
-    # Your code here
-
-
+    dict = {}
+    for word in s.split():
+        word = word.lower()
+        drop_char = '":;,.-+=/\|[]{}()*^&'
+        for character in word:
+            if character in drop_char:
+                word = word.replace(character,"")
+        if word in dict:
+            dict[word] += 1
+        elif word != '':
+            dict.update({word:1})
+    print(f'Cache: {dict}')
+    return dict
 
 if __name__ == "__main__":
     print(word_count(""))
