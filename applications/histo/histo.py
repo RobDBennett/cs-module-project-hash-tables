@@ -127,3 +127,5 @@ for word in sorted_corpus: #Iterate over each word in the heavily sorted diction
             histogram += "#" #Adds a hash for each time it appears.
         print(histogram) #Print the current histogram.
         histogram = "" #Reset placeholder to repeat process.
+
+#print("%12s %s" % (item[0], item[1] * '#"))
