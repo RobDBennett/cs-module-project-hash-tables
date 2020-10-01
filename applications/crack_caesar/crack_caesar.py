@@ -44,18 +44,6 @@ def decipher(clean, coded): #Function to take the character count dictionary and
 
 cipher = decipher(sorted_chars, coded) #Run cleaned, counted and sorted dict and code through function
 
-"""
-I tried many ways to get this one to work. The replace function I had used a bunch
-and I just couldn't get it to work. I feel like this is close. But whatever.
-def decoded(s, cipher):
-    s = s.lower()
-    for char in s:
-        if char in cipher.keys():
-            to_replace = cipher.get(char)
-            #print(to_replace)
-            char = char.replace(char, to_replace)
-    return s
-"""
 def decoded(s,cipher): #Function to translate text.
     s = s.lower() #Because I am an idiot.
     answer = "" #Start an empty string. NOT A LIST.
